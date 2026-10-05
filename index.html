@@ -322,15 +322,16 @@ footer a:hover{color:#fff}
   });
 
   // Pick the starting language: ?lang=el in the link, then a saved choice,
-  // then a Greek phone/browser or a Greek or Cypriot time zone.
+  // then a phone/browser whose main language is Greek, or a Greek or Cypriot time zone.
   var tz = '';
   try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
   var inGreece = tz === 'Europe/Athens' || tz === 'Asia/Nicosia' || tz === 'Europe/Nicosia';
   var fromLink = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
   var saved = null;
   try { saved = localStorage.getItem('raffle-lang'); } catch (e) {}
-  var langs = navigator.languages || [navigator.language || ''];
-  var greekDevice = langs.some(function (x) { return /^el\b/i.test(x || ''); });
+  // Only the visitor's first (main) language counts, so a Greek second language doesn't switch the page.
+  var mainLang = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+  var greekDevice = /^el\b/i.test(mainLang);
   var start = (fromLink === 'el' || fromLink === 'en') ? fromLink : (saved || (greekDevice || inGreece ? 'el' : 'en'));
 
   dec.addEventListener('click', function () { if (n > MIN) { n--; render(); } });
