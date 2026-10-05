@@ -90,6 +90,27 @@ footer .thanks p:last-child{color:#D6E6F5}
 footer a{color:#9FD3F7;font-weight:700;font-size:19px}
 footer a:hover{color:#fff}
 
+.abroad{padding:0 0 56px}
+.abroad-box{background:#E3F0FA;border:1px solid #BCD6EC;border-radius:12px}
+.abroad-box summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;min-height:60px;border-radius:12px}
+.abroad-box summary::-webkit-details-marker{display:none}
+.abroad-box summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.s-text{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:14px;row-gap:2px;min-width:0}
+.s-title{font-weight:700;font-size:18px}
+.s-sub{color:var(--muted);font-size:15px}
+.chev{flex:none;transition:transform .2s ease}
+.abroad-box[open] .chev{transform:rotate(180deg)}
+.abroad-body{padding:4px 20px 22px;display:flex;flex-direction:column;gap:16px;border-top:1px solid #BCD6EC}
+.abroad-body .intro{margin-top:14px;max-width:62ch}
+.abroad-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.opt{background:#fff;border:1px solid #BCD6EC;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opt h3{font-size:18px;font-weight:700}
+.opt p{color:var(--muted);font-size:15px}
+.mail{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:2px solid var(--navy);border-radius:10px;color:var(--navy);text-decoration:none;font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;font-size:21px}
+.mail:hover{background:var(--navy);color:#fff}
+.el{font-size:16px;max-width:62ch}
+@media (max-width:760px){.abroad-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}}
 @media (max-width:900px){.wk{display:none}.dow{display:inline}.cal{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){.steps{grid-template-columns:1fr;gap:20px}}
 @media (max-width:540px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}.amt{font-size:40px}h2{font-size:38px}footer .thanks p:first-child{font-size:36px}}
@@ -128,6 +149,7 @@ footer a:hover{color:#fff}
         <a class="pay disp" id="pay" href="https://venmo.com/foteini?txn=pay&amp;amount=10&amp;note=Wildcats%20November%20raffle%2C%201%20ticket.%20Name%20and%20phone%3A%20" target="_blank" rel="noopener">Pay <span id="payTotal">$10</span>&nbsp;with Venmo</a>
         <p class="fine">Venmo opens with the amount filled in. Add your name and phone number to the note so we can fill out your ticket.</p>
         <p class="fine">On a computer? Send it to <a href="https://venmo.com/foteini" target="_blank" rel="noopener" style="font-weight:600">@foteini on Venmo</a>.</p>
+        <p class="fine">Outside the US? <a href="#abroad" style="font-weight:600">Here's how to buy from abroad</a>.</p>
       </div>
     </div>
   </div>
@@ -142,6 +164,37 @@ footer a:hover{color:#fff}
         <div><span class="n disp">2</span><h3>Pay with Venmo</h3><p>Put your name and phone number in the note.</p></div>
         <div><span class="n disp">3</span><h3>We fill out your ticket</h3><p>Winners are posted every day on the Wilmington Youth Hockey Facebook page.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="abroad" aria-label="Buying from outside the US">
+    <div class="wrap">
+      <details class="abroad-box" id="abroad">
+        <summary>
+          <span class="s-text">
+            <span class="s-title">Buying from outside the US?</span>
+            <span class="s-sub">Get your tickets through Foteini by email or Facebook.</span>
+            <span class="s-sub" lang="el">Από την Ελλάδα; Πατήστε εδώ.</span>
+          </span>
+          <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2747" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="abroad-body">
+          <p class="intro">The Venmo button only works with a US Venmo account. If you're in Greece or anywhere else abroad, get in touch with Foteini and she'll help you get your tickets.</p>
+          <div class="abroad-grid">
+            <div class="opt">
+              <h3>Email Foteini</h3>
+              <p>Send your name, country and how many tickets you'd like.</p>
+              <a class="mail" href="mailto:flekatsa@gmail.com?subject=Wildcats%20raffle%20tickets%20from%20abroad&amp;body=Hi%20Foteini%2C%0A%0AI%27d%20like%20to%20buy%20___%20ticket(s)%20for%20the%20Wildcats%20November%20raffle.%0A%0AName%3A%20%0ACountry%3A%20%0APhone%20or%20WhatsApp%3A%20%0A%0AThank%20you!">Email Foteini</a>
+            </div>
+            <div class="opt">
+              <h3>Message her on Facebook</h3>
+              <p>Prefer Facebook? Send Foteini a message with the same details.</p>
+              <a class="mail" href="https://www.facebook.com/foteinilekatsa" target="_blank" rel="noopener">Open Foteini's Facebook</a>
+            </div>
+          </div>
+          <p class="el" lang="el">Από την Ελλάδα; Στείλτε email στη Φωτεινή (flekatsa@gmail.com) ή μήνυμα στο Facebook και θα σας βοηθήσει να αγοράσετε λαχνούς. 10 δολάρια ο λαχνός.</p>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -198,6 +251,13 @@ footer a:hover{color:#fff}
 
 <script>
 (function () {
+  var abroad = document.getElementById('abroad');
+  function openAbroad() { abroad.open = true; }
+  document.querySelectorAll('a[href="#abroad"]').forEach(function (a) {
+    a.addEventListener('click', openAbroad);
+  });
+  if (location.hash === '#abroad') openAbroad();
+
   var PRICE = 10, MIN = 1, MAX = 20, n = 1;
   var countEl = document.getElementById('count');
   var totalEl = document.getElementById('total');
