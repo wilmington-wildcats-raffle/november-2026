@@ -11,18 +11,24 @@
 <meta property="og:description" content="$10 a ticket. A drawing every day of November: $2,200 in cash plus 16 local prizes. Supports Wilmington Youth Hockey.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700&family=Fira+Sans+Extra+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--ice:#F2F7FB;--navy:#0F2747;--blue:#2B8FD6;--link:#1C6DB0;--red:#C8323A;--muted:#4A5C74;--line:#CFDDEA}
+:root{--ice:#F2F7FB;--navy:#0F2747;--blue:#2B8FD6;--link:#1C6DB0;--red:#C8323A;--muted:#4A5C74;--line:#CFDDEA;
+  --body:Barlow,'Fira Sans','Segoe UI',Helvetica,sans-serif;
+  --display:'Big Shoulders Display','Fira Sans Extra Condensed','Arial Narrow','Helvetica Neue',sans-serif}
 *{box-sizing:border-box}
-body{margin:0;background:var(--ice);color:var(--navy);font-family:Barlow,'Segoe UI',Helvetica,sans-serif;font-size:17px;line-height:1.5}
+body{margin:0;background:var(--ice);color:var(--navy);font-family:var(--body);font-size:17px;line-height:1.5}
 a{color:var(--link)}a:hover{color:var(--navy)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.disp{font-family:'Big Shoulders Display','Arial Narrow','Helvetica Neue',sans-serif}
+.disp{font-family:var(--display)}
 .wrap{position:relative;max-width:1120px;margin:0 auto;padding:0 20px}
 p,h1,h2,h3{margin:0}
 
-.hero{position:relative;overflow:hidden;padding:48px 0 64px}
+.hero{position:relative;overflow:hidden;padding:20px 0 64px}
+.lang-row{display:flex;justify-content:flex-end;margin-bottom:24px}
+.lang{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden;background:#fff}
+.lang button{font-family:var(--body);font-weight:600;font-size:15px;min-height:44px;padding:0 18px;border:0;background:none;color:var(--navy);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
 .rink span{position:absolute;top:0;bottom:0;width:10px}
 .rink .bl{background:var(--blue);opacity:.14}
 .rink .rl{background:var(--red);opacity:.13;transform:translateX(-50%)}
@@ -31,6 +37,7 @@ p,h1,h2,h3{margin:0}
 .hero-text{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
 .kicker{font-weight:600;font-size:18px;color:var(--link)}
 h1{font-weight:900;font-size:clamp(60px,9vw,116px);line-height:.88;letter-spacing:-.01em}
+html[lang="el"] h1{font-size:clamp(52px,8vw,104px);line-height:.92}
 .lede{font-size:21px;line-height:1.45;max-width:34ch}
 .sub{color:var(--muted);max-width:40ch}
 
@@ -41,7 +48,7 @@ h1{font-weight:900;font-size:clamp(60px,9vw,116px);line-height:.88;letter-spacin
 .stub{height:94px;background:var(--navy);color:#fff;border-radius:13px 13px 0 0;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .price{display:flex;align-items:baseline;gap:10px}
 .price b{font-weight:900;font-size:60px;line-height:1}
-.price span{font-weight:500}
+.price span{font-family:var(--body);font-size:17px;font-weight:500}
 .perf{border-top:2px dashed #9DB3C8;margin:0 18px}
 .tbody{padding:22px 24px 26px;display:flex;flex-direction:column;gap:18px}
 .qty{display:flex;flex-direction:column;gap:10px}
@@ -54,7 +61,7 @@ h1{font-weight:900;font-size:clamp(60px,9vw,116px);line-height:.88;letter-spacin
 .total{text-align:right}
 .total small{display:block;font-size:14px;color:var(--muted)}
 .total b{font-weight:900;font-size:36px;line-height:1}
-.pay{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:12px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:28px;letter-spacing:.01em}
+.pay{display:flex;align-items:center;justify-content:center;text-align:center;min-height:60px;padding:6px 12px;border-radius:12px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:28px;letter-spacing:.01em}
 .pay:hover{background:#1C3D66;color:#fff}
 .fine{font-size:15px;line-height:1.45;color:var(--muted)}
 
@@ -66,29 +73,6 @@ h2{font-weight:800;font-size:46px;line-height:1}
 .steps .n{font-weight:900;font-size:56px;line-height:1;color:var(--blue)}
 .steps h3{font-size:20px;font-weight:700}
 .steps p{color:var(--muted)}
-
-.cal-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cal-sec .wrap{padding-top:56px;padding-bottom:64px}
-.cal-sec .note{margin:10px 0 28px;color:var(--muted)}
-.wk{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:8px;font-weight:800;font-size:17px}
-.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
-.t{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;min-height:122px;display:flex;flex-direction:column;gap:6px}
-.t.cash{background:#E3F0FA;border-color:#BCD6EC}
-.t.big{background:var(--red);border-color:var(--red);color:#fff}
-.d{font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;font-size:17px;color:var(--muted)}
-.big .d,.big .px,.big .amt{color:#fff}
-.dow{display:none}
-.amt{font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:900;font-size:46px;line-height:.9;margin-top:auto}
-.pz{font-weight:700;font-size:15px;line-height:1.25}
-.px{font-size:13px;line-height:1.35;color:var(--muted)}
-
-footer{background:var(--navy);color:#fff}
-footer .wrap{padding-top:52px;padding-bottom:60px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between}
-footer .thanks{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px}
-footer .thanks p:first-child{font-weight:800;font-size:44px;line-height:1}
-footer .thanks p:last-child{color:#D6E6F5}
-footer a{color:#9FD3F7;font-weight:700;font-size:19px}
-footer a:hover{color:#fff}
 
 .abroad{padding:0 0 56px}
 .abroad-box{background:#E3F0FA;border:1px solid #BCD6EC;border-radius:12px}
@@ -106,9 +90,33 @@ footer a:hover{color:#fff}
 .opt{background:#fff;border:1px solid #BCD6EC;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
 .opt h3{font-size:18px;font-weight:700}
 .opt p{color:var(--muted);font-size:15px}
-.mail{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:2px solid var(--navy);border-radius:10px;color:var(--navy);text-decoration:none;font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;font-size:21px}
+.mail{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:2px solid var(--navy);border-radius:10px;color:var(--navy);text-decoration:none;font-family:var(--display);font-weight:800;font-size:21px}
 .mail:hover{background:var(--navy);color:#fff}
 .el{font-size:16px;max-width:62ch}
+
+.cal-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cal-sec .wrap{padding-top:56px;padding-bottom:64px}
+.cal-sec .note{margin:10px 0 28px;color:var(--muted)}
+.wk{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:8px;font-weight:800;font-size:17px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.t{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;min-height:122px;display:flex;flex-direction:column;gap:6px}
+.t.cash{background:#E3F0FA;border-color:#BCD6EC}
+.t.big{background:var(--red);border-color:var(--red);color:#fff}
+.d{font-family:var(--display);font-weight:800;font-size:17px;color:var(--muted)}
+.big .d,.big .px,.big .amt{color:#fff}
+.dow{display:none}
+.amt{font-family:var(--display);font-weight:900;font-size:46px;line-height:.9;margin-top:auto}
+.pz{font-weight:700;font-size:15px;line-height:1.25}
+.px{font-size:13px;line-height:1.35;color:var(--muted)}
+
+footer{background:var(--navy);color:#fff}
+footer .wrap{padding-top:52px;padding-bottom:60px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between}
+footer .thanks{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px}
+footer .thanks p:first-child{font-weight:800;font-size:44px;line-height:1}
+footer .thanks p:last-child{color:#D6E6F5}
+footer a{color:#9FD3F7;font-weight:700;font-size:19px}
+footer a:hover{color:#fff}
+
 @media (max-width:760px){.abroad-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.chev{transition:none}}
 @media (max-width:900px){.wk{display:none}.dow{display:inline}.cal{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -120,36 +128,42 @@ footer a:hover{color:#fff}
 
 <header class="hero">
   <div class="rink" aria-hidden="true"><span class="bl" style="left:12%"></span><span class="rl" style="left:50%"></span><span class="bl" style="left:88%"></span><span class="fo"></span></div>
+  <div class="wrap lang-row">
+    <div class="lang" role="group" aria-label="Language / Γλώσσα">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="el" aria-pressed="false" lang="el">Ελληνικά</button>
+    </div>
+  </div>
   <div class="wrap hero-row">
     <div class="hero-text">
-      <p class="kicker">Wilmington Wildcats Youth Hockey</p>
-      <h1 class="disp">November calendar raffle</h1>
-      <p class="lede">A prize drawing every day of November: $2,200 in cash plus 16 prizes from local businesses.</p>
-      <p class="sub">Every ticket helps John and the Wilmington Wildcats have a great season. Thank you for chipping in.</p>
+      <p class="kicker" data-el="Wilmington Wildcats, παιδικό χόκεϊ επί πάγου">Wilmington Wildcats Youth Hockey</p>
+      <h1 class="disp" data-el="Λαχειοφόρος Νοεμβρίου">November calendar raffle</h1>
+      <p class="lede" data-el="Κλήρωση κάθε μέρα του Νοεμβρίου: 2.200 δολάρια σε μετρητά και 16 δώρα από τοπικές επιχειρήσεις.">A prize drawing every day of November: $2,200 in cash plus 16 prizes from local businesses.</p>
+      <p class="sub" data-el="Κάθε λαχνός βοηθά τον John και τους Wilmington Wildcats να έχουν μια υπέροχη σεζόν. Σας ευχαριστούμε για τη στήριξη!">Every ticket helps John and the Wilmington Wildcats have a great season. Thank you for chipping in.</p>
     </div>
 
     <div class="ticket">
       <div class="stub">
-        <div class="price disp"><b>$10</b><span style="font-family:Barlow,sans-serif;font-size:17px">a ticket</span></div>
+        <div class="price disp"><b>$10</b><span data-el="ο λαχνός">a ticket</span></div>
         <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6 L40 42 L53 42"/><path d="M50 6 L24 42 L11 42"/><ellipse cx="32" cy="54" rx="9" ry="4"/></svg>
       </div>
       <div class="perf"></div>
       <div class="tbody">
         <div class="qty" role="group" aria-labelledby="qty-label">
-          <span id="qty-label" class="qty-label">How many tickets?</span>
+          <span id="qty-label" class="qty-label" data-el="Πόσους λαχνούς θέλετε;">How many tickets?</span>
           <div class="qty-row">
             <div class="stepper">
-              <button type="button" class="step" id="dec" aria-label="Remove a ticket" disabled>−</button>
+              <button type="button" class="step" id="dec" aria-label="Remove a ticket" data-el-aria="Ένας λαχνός λιγότερος" disabled>−</button>
               <span class="count disp" id="count" aria-live="polite">1</span>
-              <button type="button" class="step" id="inc" aria-label="Add a ticket">+</button>
+              <button type="button" class="step" id="inc" aria-label="Add a ticket" data-el-aria="Ένας λαχνός ακόμη">+</button>
             </div>
-            <div class="total"><small>Total</small><b class="disp" id="total">$10</b></div>
+            <div class="total"><small data-el="Σύνολο">Total</small><b class="disp" id="total">$10</b></div>
           </div>
         </div>
-        <a class="pay disp" id="pay" href="https://venmo.com/foteini?txn=pay&amp;amount=10&amp;note=Wildcats%20November%20raffle%2C%201%20ticket.%20Name%20and%20phone%3A%20" target="_blank" rel="noopener">Pay <span id="payTotal">$10</span>&nbsp;with Venmo</a>
-        <p class="fine">Venmo opens with the amount filled in. Add your name and phone number to the note so we can fill out your ticket.</p>
-        <p class="fine">On a computer? Send it to <a href="https://venmo.com/foteini" target="_blank" rel="noopener" style="font-weight:600">@foteini on Venmo</a>.</p>
-        <p class="fine">Outside the US? <a href="#abroad" style="font-weight:600">Here's how to buy from abroad</a>.</p>
+        <a class="pay disp" id="pay" href="https://venmo.com/foteini?txn=pay&amp;amount=10&amp;note=Wildcats%20November%20raffle%2C%201%20ticket.%20Name%20and%20phone%3A%20" target="_blank" rel="noopener">Pay $10&nbsp;with Venmo</a>
+        <p class="fine" data-el="Το Venmo ανοίγει με το ποσό ήδη συμπληρωμένο. Γράψτε το όνομα και το τηλέφωνό σας στη σημείωση για να συμπληρώσουμε τον λαχνό σας.">Venmo opens with the amount filled in. Add your name and phone number to the note so we can fill out your ticket.</p>
+        <p class="fine"><span data-el="Από υπολογιστή; Στείλτε το ποσό στο">On a computer? Send it to</span> <a href="https://venmo.com/foteini" target="_blank" rel="noopener" style="font-weight:600" data-el="@foteini στο Venmo">@foteini on Venmo</a>.</p>
+        <p class="fine"><span data-el="Εκτός ΗΠΑ;">Outside the US?</span> <a href="#abroad" style="font-weight:600" data-el="Δείτε πώς να αγοράσετε από το εξωτερικό">Here's how to buy from abroad</a>.</p>
       </div>
     </div>
   </div>
@@ -158,41 +172,40 @@ footer a:hover{color:#fff}
 <main>
   <section class="how">
     <div class="wrap">
-      <h2 class="disp">How to get in</h2>
+      <h2 class="disp" data-el="Πώς παίρνετε μέρος">How to get in</h2>
       <div class="steps">
-        <div><span class="n disp">1</span><h3>Pick your tickets</h3><p>$10 each. Buy one or a stack.</p></div>
-        <div><span class="n disp">2</span><h3>Pay with Venmo</h3><p>Put your name and phone number in the note.</p></div>
-        <div><span class="n disp">3</span><h3>We fill out your ticket</h3><p>Winners are posted every day on the Wilmington Youth Hockey Facebook page.</p></div>
+        <div><span class="n disp">1</span><h3 data-el="Διαλέξτε λαχνούς">Pick your tickets</h3><p data-el="10 δολάρια ο καθένας. Πάρτε έναν ή περισσότερους.">$10 each. Buy one or a stack.</p></div>
+        <div><span class="n disp">2</span><h3 data-el="Πληρώστε με Venmo">Pay with Venmo</h3><p data-el="Γράψτε το όνομα και το τηλέφωνό σας στη σημείωση.">Put your name and phone number in the note.</p></div>
+        <div><span class="n disp">3</span><h3 data-el="Συμπληρώνουμε τον λαχνό σας">We fill out your ticket</h3><p data-el="Οι νικητές ανακοινώνονται κάθε μέρα στη σελίδα Facebook του Wilmington Youth Hockey.">Winners are posted every day on the Wilmington Youth Hockey Facebook page.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="abroad" aria-label="Buying from outside the US">
+  <section class="abroad" aria-label="Από την Ελλάδα">
     <div class="wrap">
       <details class="abroad-box" id="abroad">
         <summary>
           <span class="s-text">
-            <span class="s-title">Buying from outside the US?</span>
-            <span class="s-sub">Get your tickets through Foteini by email or Facebook.</span>
-            <span class="s-sub" lang="el">Από την Ελλάδα; Πατήστε εδώ.</span>
+            <span class="s-title" lang="el">Από την Ελλάδα; Πατήστε εδώ.</span>
+            <span class="s-sub" data-el="Πάρτε λαχνούς μέσω της Φωτεινής, με email ή Facebook.">Get your tickets through Foteini by email or Facebook.</span>
           </span>
           <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2747" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </summary>
         <div class="abroad-body">
-          <p class="intro">The Venmo button only works with a US Venmo account. If you're in Greece or anywhere else abroad, get in touch with Foteini and she'll help you get your tickets.</p>
+          <p class="intro" data-el="Το κουμπί του Venmo λειτουργεί μόνο με αμερικανικό λογαριασμό Venmo. Αν βρίσκεστε στην Ελλάδα ή οπουδήποτε αλλού στο εξωτερικό, επικοινωνήστε με τη Φωτεινή και θα σας βοηθήσει να πάρετε λαχνούς.">The Venmo button only works with a US Venmo account. If you're in Greece or anywhere else abroad, get in touch with Foteini and she'll help you get your tickets.</p>
           <div class="abroad-grid">
             <div class="opt">
-              <h3>Email Foteini</h3>
-              <p>Send your name, country and how many tickets you'd like.</p>
-              <a class="mail" href="mailto:flekatsa@gmail.com?subject=Wildcats%20raffle%20tickets%20from%20abroad&amp;body=Hi%20Foteini%2C%0A%0AI%27d%20like%20to%20buy%20___%20ticket(s)%20for%20the%20Wildcats%20November%20raffle.%0A%0AName%3A%20%0ACountry%3A%20%0APhone%20or%20WhatsApp%3A%20%0A%0AThank%20you!">Email Foteini</a>
+              <h3 data-el="Email στη Φωτεινή">Email Foteini</h3>
+              <p data-el="Στείλτε το όνομά σας, τη χώρα σας και πόσους λαχνούς θέλετε.">Send your name, country and how many tickets you'd like.</p>
+              <a class="mail" href="mailto:flekatsa@gmail.com?subject=Wildcats%20raffle%20tickets%20from%20abroad&amp;body=Hi%20Foteini%2C%0A%0AI%27d%20like%20to%20buy%20___%20ticket%28s%29%20for%20the%20Wildcats%20November%20raffle.%0A%0AName%3A%20%0ACountry%3A%20%0APhone%20or%20WhatsApp%3A%20%0A%0AThank%20you%21" data-el-href="mailto:flekatsa@gmail.com?subject=%CE%9B%CE%B1%CF%87%CE%BD%CE%BF%CE%AF%20Wildcats%20%CE%B1%CF%80%CF%8C%20%CF%84%CE%BF%20%CE%B5%CE%BE%CF%89%CF%84%CE%B5%CF%81%CE%B9%CE%BA%CF%8C&amp;body=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%BF%CF%85%20%CE%A6%CF%89%CF%84%CE%B5%CE%B9%CE%BD%CE%AE%2C%0A%0A%CE%98%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20___%20%CE%BB%CE%B1%CF%87%CE%BD%CF%8C%2F%CE%BB%CE%B1%CF%87%CE%BD%CE%BF%CF%8D%CF%82%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%20%CE%BB%CE%B1%CF%87%CE%B5%CE%B9%CE%BF%CF%86%CF%8C%CF%81%CE%BF%20%CE%9D%CE%BF%CE%B5%CE%BC%CE%B2%CF%81%CE%AF%CE%BF%CF%85%20%CF%84%CF%89%CE%BD%20Wildcats.%0A%0A%CE%8C%CE%BD%CE%BF%CE%BC%CE%B1%3A%20%0A%CE%A7%CF%8E%CF%81%CE%B1%3A%20%0A%CE%A4%CE%B7%CE%BB%CE%AD%CF%86%CF%89%CE%BD%CE%BF%20%CE%AE%20WhatsApp%3A%20%0A%0A%CE%95%CF%85%CF%87%CE%B1%CF%81%CE%B9%CF%83%CF%84%CF%8E%21" data-el="Email στη Φωτεινή">Email Foteini</a>
             </div>
             <div class="opt">
-              <h3>Message her on Facebook</h3>
-              <p>Prefer Facebook? Send Foteini a message with the same details.</p>
-              <a class="mail" href="https://www.facebook.com/foteinilekatsa" target="_blank" rel="noopener">Open Foteini's Facebook</a>
+              <h3 data-el="Μήνυμα στο Facebook">Message her on Facebook</h3>
+              <p data-el="Προτιμάτε Facebook; Στείλτε στη Φωτεινή μήνυμα με τα ίδια στοιχεία.">Prefer Facebook? Send Foteini a message with the same details.</p>
+              <a class="mail" href="https://www.facebook.com/foteinilekatsa" target="_blank" rel="noopener" data-el="Το Facebook της Φωτεινής">Open Foteini's Facebook</a>
             </div>
           </div>
-          <p class="el" lang="el">Από την Ελλάδα; Στείλτε email στη Φωτεινή (flekatsa@gmail.com) ή μήνυμα στο Facebook και θα σας βοηθήσει να αγοράσετε λαχνούς. 10 δολάρια ο λαχνός.</p>
+          <p class="el" lang="el" data-hide-el>Από την Ελλάδα; Στείλτε email στη Φωτεινή (flekatsa@gmail.com) ή μήνυμα στο Facebook και θα σας βοηθήσει να αγοράσετε λαχνούς. 10 δολάρια ο λαχνός.</p>
         </div>
       </details>
     </div>
@@ -200,40 +213,40 @@ footer a:hover{color:#fff}
 
   <section class="cal-sec">
     <div class="wrap">
-      <h2 class="disp">November 2026, day by day</h2>
-      <p class="note">$500 cash on November 1 and on Thanksgiving Day, $100 cash on 12 more days.</p>
-      <div class="wk disp" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+      <h2 class="disp" data-el="Νοέμβριος 2026, μέρα με τη μέρα">November 2026, day by day</h2>
+      <p class="note" data-el="500 δολάρια μετρητά την 1η Νοεμβρίου και την Ημέρα των Ευχαριστιών, 100 δολάρια μετρητά σε άλλες 12 μέρες.">$500 cash on November 1 and on Thanksgiving Day, $100 cash on 12 more days.</p>
+      <div class="wk disp" aria-hidden="true"><span data-el="Κυρ">Sun</span><span data-el="Δευ">Mon</span><span data-el="Τρί">Tue</span><span data-el="Τετ">Wed</span><span data-el="Πέμ">Thu</span><span data-el="Παρ">Fri</span><span data-el="Σάβ">Sat</span></div>
       <div class="cal">
-        <div class="t big"><span class="d"><span class="dow">Sun </span>1</span><span class="amt">$500</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Mon </span>2</span><span class="pz">UMass Lowell basketball</span><span class="px">4 tickets to any home game</span></div>
-        <div class="t"><span class="d"><span class="dow">Tue </span>3</span><span class="pz">$25 Frangos gift card</span><span class="px">Plus a free haircut at TJ's Barbershop</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Wed </span>4</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Thu </span>5</span><span class="pz">Golden Nozzle Car Wash</span><span class="px">Car wash book, a $110 value</span></div>
-        <div class="t"><span class="d"><span class="dow">Fri </span>6</span><span class="pz">Custom cookies</span><span class="px">Gift certificate</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sat </span>7</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sun </span>8</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Mon </span>9</span><span class="pz">$100 Wamesit Lanes</span><span class="px">Gift card</span></div>
-        <div class="t"><span class="d"><span class="dow">Tue </span>10</span><span class="pz">UMass Lowell hockey</span><span class="px">4 tickets to any home game</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Wed </span>11</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Thu </span>12</span><span class="pz">Ninety Nine and Tremezzo</span><span class="px">Restaurant gift cards</span></div>
-        <div class="t"><span class="d"><span class="dow">Fri </span>13</span><span class="pz">$100 Nova Barbers</span><span class="px">Gift card</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sat </span>14</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sun </span>15</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Mon </span>16</span><span class="pz">UMass Lowell basketball</span><span class="px">4 tickets to any home game, plus a bonus local prize</span></div>
-        <div class="t"><span class="d"><span class="dow">Tue </span>17</span><span class="pz">Kings Bowling and Pizza</span><span class="px">Party for 6</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Wed </span>18</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Thu </span>19</span><span class="pz">$50 The Bancroft</span><span class="px">Gift card</span></div>
-        <div class="t"><span class="d"><span class="dow">Fri </span>20</span><span class="pz">$150 in gift cards</span><span class="px">$50 each for Visa, TJ Maxx and Amazon</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sat </span>21</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sun </span>22</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Mon </span>23</span><span class="pz">$25 Jake n Joes</span><span class="px">Plus 2 haircuts at Church Street Barbers</span></div>
-        <div class="t"><span class="d"><span class="dow">Tue </span>24</span><span class="pz">$100 Nova Barbers</span><span class="px">Gift card</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Wed </span>25</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t big"><span class="d"><span class="dow">Thu </span>26</span><span class="amt">$500</span><span class="px">Cash, Thanksgiving Day</span></div>
-        <div class="t"><span class="d"><span class="dow">Fri </span>27</span><span class="pz">$100 Amazon</span><span class="px">Gift card</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sat </span>28</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t cash"><span class="d"><span class="dow">Sun </span>29</span><span class="amt">$100</span><span class="px">Cash</span></div>
-        <div class="t"><span class="d"><span class="dow">Mon </span>30</span><span class="pz">Winter hockey tuition</span><span class="px">Free Learn to Play or Learn to Skate</span></div>
+        <div class="t big"><span class="d"><span class="dow" data-el="Κυρ ">Sun </span>1</span><span class="amt">$500</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Δευ ">Mon </span>2</span><span class="pz" data-el="Μπάσκετ UMass Lowell">UMass Lowell basketball</span><span class="px" data-el="4 εισιτήρια για οποιονδήποτε αγώνα εντός έδρας">4 tickets to any home game</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Τρί ">Tue </span>3</span><span class="pz" data-el="Δωροκάρτα Frangos $25">$25 Frangos gift card</span><span class="px" data-el="Και ένα δωρεάν κούρεμα στο TJ's Barbershop">Plus a free haircut at TJ's Barbershop</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Τετ ">Wed </span>4</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Πέμ ">Thu </span>5</span><span class="pz">Golden Nozzle Car Wash</span><span class="px" data-el="Κουπόνια πλυσίματος αξίας $110">Car wash book, a $110 value</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Παρ ">Fri </span>6</span><span class="pz" data-el="Μπισκότα κατά παραγγελία">Custom cookies</span><span class="px" data-el="Δωροεπιταγή">Gift certificate</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Σάβ ">Sat </span>7</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Κυρ ">Sun </span>8</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Δευ ">Mon </span>9</span><span class="pz">$100 Wamesit Lanes</span><span class="px" data-el="Δωροκάρτα">Gift card</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Τρί ">Tue </span>10</span><span class="pz" data-el="Χόκεϊ UMass Lowell">UMass Lowell hockey</span><span class="px" data-el="4 εισιτήρια για οποιονδήποτε αγώνα εντός έδρας">4 tickets to any home game</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Τετ ">Wed </span>11</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Πέμ ">Thu </span>12</span><span class="pz" data-el="Ninety Nine και Tremezzo">Ninety Nine and Tremezzo</span><span class="px" data-el="Δωροκάρτες εστιατορίων">Restaurant gift cards</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Παρ ">Fri </span>13</span><span class="pz">$100 Nova Barbers</span><span class="px" data-el="Δωροκάρτα">Gift card</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Σάβ ">Sat </span>14</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Κυρ ">Sun </span>15</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Δευ ">Mon </span>16</span><span class="pz" data-el="Μπάσκετ UMass Lowell">UMass Lowell basketball</span><span class="px" data-el="4 εισιτήρια για οποιονδήποτε αγώνα εντός έδρας, και ένα επιπλέον τοπικό δώρο">4 tickets to any home game, plus a bonus local prize</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Τρί ">Tue </span>17</span><span class="pz" data-el="Kings Bowling και Pizza">Kings Bowling and Pizza</span><span class="px" data-el="Πάρτι για 6 άτομα">Party for 6</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Τετ ">Wed </span>18</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Πέμ ">Thu </span>19</span><span class="pz">$50 The Bancroft</span><span class="px" data-el="Δωροκάρτα">Gift card</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Παρ ">Fri </span>20</span><span class="pz" data-el="Δωροκάρτες αξίας $150">$150 in gift cards</span><span class="px" data-el="Από $50 για Visa, TJ Maxx και Amazon">$50 each for Visa, TJ Maxx and Amazon</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Σάβ ">Sat </span>21</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Κυρ ">Sun </span>22</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Δευ ">Mon </span>23</span><span class="pz">$25 Jake n Joes</span><span class="px" data-el="Και 2 κουρέματα στο Church Street Barbers">Plus 2 haircuts at Church Street Barbers</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Τρί ">Tue </span>24</span><span class="pz">$100 Nova Barbers</span><span class="px" data-el="Δωροκάρτα">Gift card</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Τετ ">Wed </span>25</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t big"><span class="d"><span class="dow" data-el="Πέμ ">Thu </span>26</span><span class="amt">$500</span><span class="px" data-el="Μετρητά, Ημέρα των Ευχαριστιών">Cash, Thanksgiving Day</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Παρ ">Fri </span>27</span><span class="pz">$100 Amazon</span><span class="px" data-el="Δωροκάρτα">Gift card</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Σάβ ">Sat </span>28</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow" data-el="Κυρ ">Sun </span>29</span><span class="amt">$100</span><span class="px" data-el="Μετρητά">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow" data-el="Δευ ">Mon </span>30</span><span class="pz" data-el="Δίδακτρα χειμερινού χόκεϊ">Winter hockey tuition</span><span class="px" data-el="Δωρεάν Learn to Play ή Learn to Skate">Free Learn to Play or Learn to Skate</span></div>
       </div>
     </div>
   </section>
@@ -242,8 +255,8 @@ footer a:hover{color:#fff}
 <footer>
   <div class="wrap">
     <div class="thanks">
-      <p class="disp">Thank you for supporting Wilmington Youth Hockey</p>
-      <p>Let's go Wildcats.</p>
+      <p class="disp" data-el="Σας ευχαριστούμε που στηρίζετε το Wilmington Youth Hockey">Thank you for supporting Wilmington Youth Hockey</p>
+      <p data-el="Πάμε Wildcats!">Let's go Wildcats.</p>
     </div>
     <a href="https://venmo.com/foteini" target="_blank" rel="noopener">Venmo @foteini</a>
   </div>
@@ -251,36 +264,81 @@ footer a:hover{color:#fff}
 
 <script>
 (function () {
+  var TITLE = { en: 'Wildcats November calendar raffle', el: 'Λαχειοφόρος Νοεμβρίου των Wildcats' };
+  var PRICE = 10, MIN = 1, MAX = 20, n = 1, lang = 'en';
+
+  // Remember the English text so the page can switch back and forth.
+  var textNodes = document.querySelectorAll('[data-el]');
+  var hrefNodes = document.querySelectorAll('[data-el-href]');
+  var ariaNodes = document.querySelectorAll('[data-el-aria]');
+  textNodes.forEach(function (el) { el.setAttribute('data-en', el.textContent); });
+  hrefNodes.forEach(function (el) { el.setAttribute('data-en-href', el.getAttribute('href')); });
+  ariaNodes.forEach(function (el) { el.setAttribute('data-en-aria', el.getAttribute('aria-label')); });
+
   var abroad = document.getElementById('abroad');
   function openAbroad() { abroad.open = true; }
   document.querySelectorAll('a[href="#abroad"]').forEach(function (a) {
     a.addEventListener('click', openAbroad);
   });
-  if (location.hash === '#abroad') openAbroad();
 
-  var PRICE = 10, MIN = 1, MAX = 20, n = 1;
   var countEl = document.getElementById('count');
   var totalEl = document.getElementById('total');
-  var payTotalEl = document.getElementById('payTotal');
   var pay = document.getElementById('pay');
   var dec = document.getElementById('dec');
   var inc = document.getElementById('inc');
+  var langButtons = document.querySelectorAll('.lang button');
 
   function render() {
     var amount = n * PRICE;
     var word = n === 1 ? 'ticket' : 'tickets';
+    // The Venmo note stays in English so Foteini can read every order the same way.
     var note = encodeURIComponent('Wildcats November raffle, ' + n + ' ' + word + '. Name and phone: ');
     countEl.textContent = n;
     totalEl.textContent = '$' + amount;
-    payTotalEl.textContent = '$' + amount;
+    pay.textContent = lang === 'el' ? 'Πληρωμή $' + amount + '\u00a0με Venmo' : 'Pay $' + amount + '\u00a0with Venmo';
     pay.href = 'https://venmo.com/foteini?txn=pay&amount=' + amount + '&note=' + note;
     dec.disabled = n <= MIN;
     inc.disabled = n >= MAX;
   }
 
+  function setLang(l) {
+    lang = l === 'el' ? 'el' : 'en';
+    var g = lang === 'el';
+    document.documentElement.lang = lang;
+    document.title = TITLE[lang];
+    textNodes.forEach(function (el) { el.textContent = el.getAttribute(g ? 'data-el' : 'data-en'); });
+    hrefNodes.forEach(function (el) { el.setAttribute('href', el.getAttribute(g ? 'data-el-href' : 'data-en-href')); });
+    ariaNodes.forEach(function (el) { el.setAttribute('aria-label', el.getAttribute(g ? 'data-el-aria' : 'data-en-aria')); });
+    document.querySelectorAll('[data-hide-el]').forEach(function (el) { el.hidden = g; });
+    langButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+    render();
+  }
+
+  langButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      setLang(b.getAttribute('data-lang'));
+      try { localStorage.setItem('raffle-lang', lang); } catch (e) {}
+    });
+  });
+
+  // Pick the starting language: ?lang=el in the link, then a saved choice,
+  // then a Greek phone/browser or a Greek or Cypriot time zone.
+  var tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  var inGreece = tz === 'Europe/Athens' || tz === 'Asia/Nicosia' || tz === 'Europe/Nicosia';
+  var fromLink = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
+  var saved = null;
+  try { saved = localStorage.getItem('raffle-lang'); } catch (e) {}
+  var langs = navigator.languages || [navigator.language || ''];
+  var greekDevice = langs.some(function (x) { return /^el\b/i.test(x || ''); });
+  var start = (fromLink === 'el' || fromLink === 'en') ? fromLink : (saved || (greekDevice || inGreece ? 'el' : 'en'));
+
   dec.addEventListener('click', function () { if (n > MIN) { n--; render(); } });
   inc.addEventListener('click', function () { if (n < MAX) { n++; render(); } });
-  render();
+  setLang(start);
+
+  // Visitors in Greece can't use the Venmo button, so show them the overseas options right away.
+  if (location.hash === '#abroad' || inGreece) openAbroad();
 })();
 </script>
 </body>
