@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<title>Wildcats November calendar raffle</title>
+<meta name="description" content="A prize drawing every day of November: $2,200 in cash plus 16 local prizes. $10 a ticket, pay with Venmo.">
+<meta property="og:title" content="Wildcats November calendar raffle">
+<meta property="og:description" content="$10 a ticket. A drawing every day of November: $2,200 in cash plus 16 local prizes. Supports Wilmington Youth Hockey.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ice:#F2F7FB;--navy:#0F2747;--blue:#2B8FD6;--link:#1C6DB0;--red:#C8323A;--muted:#4A5C74;--line:#CFDDEA}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ice);color:var(--navy);font-family:Barlow,'Segoe UI',Helvetica,sans-serif;font-size:17px;line-height:1.5}
+a{color:var(--link)}a:hover{color:var(--navy)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.disp{font-family:'Big Shoulders Display','Arial Narrow','Helvetica Neue',sans-serif}
+.wrap{position:relative;max-width:1120px;margin:0 auto;padding:0 20px}
+p,h1,h2,h3{margin:0}
+
+.hero{position:relative;overflow:hidden;padding:48px 0 64px}
+.rink span{position:absolute;top:0;bottom:0;width:10px}
+.rink .bl{background:var(--blue);opacity:.14}
+.rink .rl{background:var(--red);opacity:.13;transform:translateX(-50%)}
+.rink .fo{width:440px;height:440px;top:50%;bottom:auto;left:50%;transform:translate(-50%,-50%);border:8px solid var(--blue);border-radius:50%;opacity:.11}
+.hero-row{display:flex;flex-wrap:wrap;gap:44px;align-items:center}
+.hero-text{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.kicker{font-weight:600;font-size:18px;color:var(--link)}
+h1{font-weight:900;font-size:clamp(60px,9vw,116px);line-height:.88;letter-spacing:-.01em}
+.lede{font-size:21px;line-height:1.45;max-width:34ch}
+.sub{color:var(--muted);max-width:40ch}
+
+.ticket{position:relative;flex:1 1 340px;max-width:440px;background:#fff;border:2px solid var(--navy);border-radius:16px}
+.ticket::before,.ticket::after{content:"";position:absolute;top:82px;width:24px;height:24px;border-radius:50%;background:var(--ice);border:2px solid var(--navy)}
+.ticket::before{left:-14px;clip-path:inset(0 0 0 50%)}
+.ticket::after{right:-14px;clip-path:inset(0 50% 0 0)}
+.stub{height:94px;background:var(--navy);color:#fff;border-radius:13px 13px 0 0;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.price{display:flex;align-items:baseline;gap:10px}
+.price b{font-weight:900;font-size:60px;line-height:1}
+.price span{font-weight:500}
+.perf{border-top:2px dashed #9DB3C8;margin:0 18px}
+.tbody{padding:22px 24px 26px;display:flex;flex-direction:column;gap:18px}
+.qty{display:flex;flex-direction:column;gap:10px}
+.qty-label{font-weight:600}
+.qty-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.stepper{display:flex;align-items:center;gap:14px}
+.step{width:52px;height:52px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.step:disabled{opacity:.35;cursor:not-allowed}
+.count{font-weight:900;font-size:56px;line-height:1;min-width:56px;text-align:center}
+.total{text-align:right}
+.total small{display:block;font-size:14px;color:var(--muted)}
+.total b{font-weight:900;font-size:36px;line-height:1}
+.pay{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:12px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:28px;letter-spacing:.01em}
+.pay:hover{background:#1C3D66;color:#fff}
+.fine{font-size:15px;line-height:1.45;color:var(--muted)}
+
+.how{padding:8px 0 64px}
+h2{font-weight:800;font-size:46px;line-height:1}
+.how h2{margin-bottom:28px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.steps>div{border-top:4px solid var(--navy);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+.steps .n{font-weight:900;font-size:56px;line-height:1;color:var(--blue)}
+.steps h3{font-size:20px;font-weight:700}
+.steps p{color:var(--muted)}
+
+.cal-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cal-sec .wrap{padding-top:56px;padding-bottom:64px}
+.cal-sec .note{margin:10px 0 28px;color:var(--muted)}
+.wk{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:8px;font-weight:800;font-size:17px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.t{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;min-height:122px;display:flex;flex-direction:column;gap:6px}
+.t.cash{background:#E3F0FA;border-color:#BCD6EC}
+.t.big{background:var(--red);border-color:var(--red);color:#fff}
+.d{font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;font-size:17px;color:var(--muted)}
+.big .d,.big .px,.big .amt{color:#fff}
+.dow{display:none}
+.amt{font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:900;font-size:46px;line-height:.9;margin-top:auto}
+.pz{font-weight:700;font-size:15px;line-height:1.25}
+.px{font-size:13px;line-height:1.35;color:var(--muted)}
+
+footer{background:var(--navy);color:#fff}
+footer .wrap{padding-top:52px;padding-bottom:60px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between}
+footer .thanks{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px}
+footer .thanks p:first-child{font-weight:800;font-size:44px;line-height:1}
+footer .thanks p:last-child{color:#D6E6F5}
+footer a{color:#9FD3F7;font-weight:700;font-size:19px}
+footer a:hover{color:#fff}
+
+@media (max-width:900px){.wk{display:none}.dow{display:inline}.cal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.steps{grid-template-columns:1fr;gap:20px}}
+@media (max-width:540px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}.amt{font-size:40px}h2{font-size:38px}footer .thanks p:first-child{font-size:36px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="rink" aria-hidden="true"><span class="bl" style="left:12%"></span><span class="rl" style="left:50%"></span><span class="bl" style="left:88%"></span><span class="fo"></span></div>
+  <div class="wrap hero-row">
+    <div class="hero-text">
+      <p class="kicker">Wilmington Wildcats Youth Hockey</p>
+      <h1 class="disp">November calendar raffle</h1>
+      <p class="lede">A prize drawing every day of November: $2,200 in cash plus 16 prizes from local businesses.</p>
+      <p class="sub">Every ticket helps John and the Wilmington Wildcats have a great season. Thank you for chipping in.</p>
+    </div>
+
+    <div class="ticket">
+      <div class="stub">
+        <div class="price disp"><b>$10</b><span style="font-family:Barlow,sans-serif;font-size:17px">a ticket</span></div>
+        <svg width="60" height="60" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6 L40 42 L53 42"/><path d="M50 6 L24 42 L11 42"/><ellipse cx="32" cy="54" rx="9" ry="4"/></svg>
+      </div>
+      <div class="perf"></div>
+      <div class="tbody">
+        <div class="qty" role="group" aria-labelledby="qty-label">
+          <span id="qty-label" class="qty-label">How many tickets?</span>
+          <div class="qty-row">
+            <div class="stepper">
+              <button type="button" class="step" id="dec" aria-label="Remove a ticket" disabled>−</button>
+              <span class="count disp" id="count" aria-live="polite">1</span>
+              <button type="button" class="step" id="inc" aria-label="Add a ticket">+</button>
+            </div>
+            <div class="total"><small>Total</small><b class="disp" id="total">$10</b></div>
+          </div>
+        </div>
+        <a class="pay disp" id="pay" href="https://venmo.com/foteini?txn=pay&amp;amount=10&amp;note=Wildcats%20November%20raffle%2C%201%20ticket.%20Name%20and%20phone%3A%20" target="_blank" rel="noopener">Pay <span id="payTotal">$10</span>&nbsp;with Venmo</a>
+        <p class="fine">Venmo opens with the amount filled in. Add your name and phone number to the note so we can fill out your ticket.</p>
+        <p class="fine">On a computer? Send it to <a href="https://venmo.com/foteini" target="_blank" rel="noopener" style="font-weight:600">@foteini on Venmo</a>.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="how">
+    <div class="wrap">
+      <h2 class="disp">How to get in</h2>
+      <div class="steps">
+        <div><span class="n disp">1</span><h3>Pick your tickets</h3><p>$10 each. Buy one or a stack.</p></div>
+        <div><span class="n disp">2</span><h3>Pay with Venmo</h3><p>Put your name and phone number in the note.</p></div>
+        <div><span class="n disp">3</span><h3>We fill out your ticket</h3><p>Winners are posted every day on the Wilmington Youth Hockey Facebook page.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cal-sec">
+    <div class="wrap">
+      <h2 class="disp">November 2026, day by day</h2>
+      <p class="note">$500 cash on November 1 and on Thanksgiving Day, $100 cash on 12 more days.</p>
+      <div class="wk disp" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+      <div class="cal">
+        <div class="t big"><span class="d"><span class="dow">Sun </span>1</span><span class="amt">$500</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Mon </span>2</span><span class="pz">UMass Lowell basketball</span><span class="px">4 tickets to any home game</span></div>
+        <div class="t"><span class="d"><span class="dow">Tue </span>3</span><span class="pz">$25 Frangos gift card</span><span class="px">Plus a free haircut at TJ's Barbershop</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Wed </span>4</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Thu </span>5</span><span class="pz">Golden Nozzle Car Wash</span><span class="px">Car wash book, a $110 value</span></div>
+        <div class="t"><span class="d"><span class="dow">Fri </span>6</span><span class="pz">Custom cookies</span><span class="px">Gift certificate</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sat </span>7</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sun </span>8</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Mon </span>9</span><span class="pz">$100 Wamesit Lanes</span><span class="px">Gift card</span></div>
+        <div class="t"><span class="d"><span class="dow">Tue </span>10</span><span class="pz">UMass Lowell hockey</span><span class="px">4 tickets to any home game</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Wed </span>11</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Thu </span>12</span><span class="pz">Ninety Nine and Tremezzo</span><span class="px">Restaurant gift cards</span></div>
+        <div class="t"><span class="d"><span class="dow">Fri </span>13</span><span class="pz">$100 Nova Barbers</span><span class="px">Gift card</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sat </span>14</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sun </span>15</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Mon </span>16</span><span class="pz">UMass Lowell basketball</span><span class="px">4 tickets to any home game, plus a bonus local prize</span></div>
+        <div class="t"><span class="d"><span class="dow">Tue </span>17</span><span class="pz">Kings Bowling and Pizza</span><span class="px">Party for 6</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Wed </span>18</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Thu </span>19</span><span class="pz">$50 The Bancroft</span><span class="px">Gift card</span></div>
+        <div class="t"><span class="d"><span class="dow">Fri </span>20</span><span class="pz">$150 in gift cards</span><span class="px">$50 each for Visa, TJ Maxx and Amazon</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sat </span>21</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sun </span>22</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Mon </span>23</span><span class="pz">$25 Jake n Joes</span><span class="px">Plus 2 haircuts at Church Street Barbers</span></div>
+        <div class="t"><span class="d"><span class="dow">Tue </span>24</span><span class="pz">$100 Nova Barbers</span><span class="px">Gift card</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Wed </span>25</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t big"><span class="d"><span class="dow">Thu </span>26</span><span class="amt">$500</span><span class="px">Cash, Thanksgiving Day</span></div>
+        <div class="t"><span class="d"><span class="dow">Fri </span>27</span><span class="pz">$100 Amazon</span><span class="px">Gift card</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sat </span>28</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t cash"><span class="d"><span class="dow">Sun </span>29</span><span class="amt">$100</span><span class="px">Cash</span></div>
+        <div class="t"><span class="d"><span class="dow">Mon </span>30</span><span class="pz">Winter hockey tuition</span><span class="px">Free Learn to Play or Learn to Skate</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="thanks">
+      <p class="disp">Thank you for supporting Wilmington Youth Hockey</p>
+      <p>Let's go Wildcats.</p>
+    </div>
+    <a href="https://venmo.com/foteini" target="_blank" rel="noopener">Venmo @foteini</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PRICE = 10, MIN = 1, MAX = 20, n = 1;
+  var countEl = document.getElementById('count');
+  var totalEl = document.getElementById('total');
+  var payTotalEl = document.getElementById('payTotal');
+  var pay = document.getElementById('pay');
+  var dec = document.getElementById('dec');
+  var inc = document.getElementById('inc');
+
+  function render() {
+    var amount = n * PRICE;
+    var word = n === 1 ? 'ticket' : 'tickets';
+    var note = encodeURIComponent('Wildcats November raffle, ' + n + ' ' + word + '. Name and phone: ');
+    countEl.textContent = n;
+    totalEl.textContent = '$' + amount;
+    payTotalEl.textContent = '$' + amount;
+    pay.href = 'https://venmo.com/foteini?txn=pay&amount=' + amount + '&note=' + note;
+    dec.disabled = n <= MIN;
+    inc.disabled = n >= MAX;
+  }
+
+  dec.addEventListener('click', function () { if (n > MIN) { n--; render(); } });
+  inc.addEventListener('click', function () { if (n < MAX) { n++; render(); } });
+  render();
+})();
+</script>
+</body>
+</html>
